@@ -1,5 +1,8 @@
 # Getting Started with Create React App
 
+You can save your todos in this App 
+Developed by MENULA BOTHEJU
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
