@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import ToDoList from "./components/ToDoList";
+import { VStack } from "@chakra-ui/react";
+import TodoAdd from "./components/TodoAdd";
+import { useEffect, useState } from "react";
+import AppHeader from "./components/AppHeader";
 
 function App() {
+  const [todos, setTodos] = useState([]);
+  const [searchResult, setSearchResult] = useState([]);
+
+  const deleteTodo = (id) => {
+    const newTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(newTodos);
+    localStorage.setItem("todos", JSON.stringify(newTodos));
+  };
+
+  useEffect(() => {
+    const todos = JSON.parse(localStorage.getItem("todos"));
+    if (todos) {
+      setTodos(todos);
+    }
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <VStack width="100vw">
+        <AppHeader setSearchResult={setSearchResult} todos={todos} />
+        <TodoAdd setTodos={setTodos} todos={todos} />
+        <ToDoList
+          todos={todos}
+          deleteTodo={deleteTodo}
+          searchResult={searchResult}
+        />
+      </VStack>
+    </>
   );
 }
 
