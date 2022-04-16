@@ -8,8 +8,7 @@ const TodoAdd = ({ setTodos, todos }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target.value);
-    if (e.target.value === "" || "undefined") {
+    if (todo === "") {
       toast({
         title: "Todo Error",
         description: "Please enter todo to add",

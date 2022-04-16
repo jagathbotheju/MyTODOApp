@@ -3,7 +3,7 @@ import {
   Button,
   Flex,
   Heading,
-  HStack,
+  Stack,
   Input,
   IconButton,
   useColorMode,
@@ -39,7 +39,7 @@ const AppHeader = ({ todos, setSearchResult }) => {
   };
 
   const chechSearchTerm = () => {
-    if (searchTerm === "" || "undefined") {
+    if (searchTerm === "") {
       toast({
         title: "Search Term Error",
         description: "Please enter any word to search",
@@ -52,7 +52,8 @@ const AppHeader = ({ todos, setSearchResult }) => {
 
   return (
     <>
-      <HStack
+      <Stack
+        direction={["column", "column", "row"]}
         bg="blue.300"
         height={150}
         width="100%"
@@ -60,7 +61,8 @@ const AppHeader = ({ todos, setSearchResult }) => {
         justifyContent="space-around"
       >
         <Heading
-          shadow="2xl"
+          flexWrap="nowrap"
+          shadow={["none", "2xl"]}
           fontWeight="bold"
           pl="10"
           as="h1"
@@ -118,7 +120,7 @@ const AppHeader = ({ todos, setSearchResult }) => {
             _hover={{ bg: "blue.100" }}
           />
         </Flex>
-      </HStack>
+      </Stack>
     </>
   );
 };
