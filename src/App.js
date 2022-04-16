@@ -1,5 +1,5 @@
 import ToDoList from "./components/ToDoList";
-import { VStack } from "@chakra-ui/react";
+import { HStack, VStack, Text } from "@chakra-ui/react";
 import TodoAdd from "./components/TodoAdd";
 import { useEffect, useState } from "react";
 import AppHeader from "./components/AppHeader";
@@ -23,14 +23,19 @@ function App() {
 
   return (
     <>
-      <VStack width="100vw">
-        <AppHeader setSearchResult={setSearchResult} todos={todos} />
-        <TodoAdd setTodos={setTodos} todos={todos} />
-        <ToDoList
-          todos={todos}
-          deleteTodo={deleteTodo}
-          searchResult={searchResult}
-        />
+      <VStack justifyContent="space-between" height="100vh">
+        <VStack width="100vw">
+          <AppHeader setSearchResult={setSearchResult} todos={todos} />
+          <TodoAdd setTodos={setTodos} todos={todos} />
+          <ToDoList
+            todos={todos}
+            deleteTodo={deleteTodo}
+            searchResult={searchResult}
+          />
+        </VStack>
+        <Text color="blue.400" fontWeight="bold" p="5" alignSelf="end">
+          Powered by Menula
+        </Text>
       </VStack>
     </>
   );
