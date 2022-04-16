@@ -1,5 +1,5 @@
 import ToDoList from "./components/ToDoList";
-import { HStack, VStack, Text } from "@chakra-ui/react";
+import { VStack, Text } from "@chakra-ui/react";
 import TodoAdd from "./components/TodoAdd";
 import { useEffect, useState } from "react";
 import AppHeader from "./components/AppHeader";
